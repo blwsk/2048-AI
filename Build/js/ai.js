@@ -95,13 +95,14 @@ AI.prototype.search = function() {
       bestMove,
       bestScore = 0,
       newGrid,
-      thisGrid = this.grid;
+      thisGrid = this.grid,
+      moves = [0, 1, 2, 3];
 
-  //var moves = [0, 1, 2, 3];
-  var moves = [0, 1, 3];
   moves.forEach( function(m) {
     newGrid = thisGrid.clone();
     var a = newGrid.move(m);
+
+    // did it move?
     if ( a.moved == true ) {
       var newScore = newGrid.score();
       if ( newScore > bestScore ) {
@@ -113,8 +114,6 @@ AI.prototype.search = function() {
 
   return { move: bestMove };
 }
-
-
 
 
 
